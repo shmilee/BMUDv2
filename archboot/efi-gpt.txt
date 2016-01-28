@@ -1,0 +1,20 @@
+Install the packages grub and efibootmgr. GRUB is the bootloader, efibootmgr creates bootable .efi stub entries used by the GRUB installation script.
+
+The following steps install the GRUB UEFI application to $esp/EFI/grub, install its modules to /boot/grub/x86_64-efi, and place the bootable grubx64.efi stub in $esp/EFI/grub_uefi.
+
+First, tell GRUB to use UEFI, set the boot directory and set the bootloader ID. Change $esp to your efi partition (usually /boot):
+
+# grub-install --target=x86_64-efi --efi-directory=$esp --bootloader-id=grub_uefi --recheck
+
+The bootloader id is what appears in the boot options to identity the GRUB EFI boot option; make sure this is something you will recognize later.
+
+After the above install finished the main GRUB directory is located at /boot/grub/.
+
+Do not forget to #Generate the main configuration file after finalizing further setup dependant #Configuration.
+Note:
+
+    While some distributions require a /boot/efi or /boot/EFI directory, Arch does not.
+    --efi-directory and --bootloader-id are specific to GRUB UEFI. --efi-directory specifies the mountpoint of the ESP. It replaces --root-directory, which is deprecated. --bootloader-id specifies the name of the directory used to store the grubx64.efi file.
+    You might note the absence of a <device_path> option (e.g.: /dev/sda) in the grub-install command. In fact any <device_path> provided will be ignored by the GRUB install script, as UEFI bootloaders do not use a MBR or partition boot sector at all.
+
+

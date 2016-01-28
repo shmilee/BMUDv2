@@ -1,0 +1,2 @@
+type btrfs 
+(rw,noatime,compress=lzo,ssd,discard,space_cache,autodefrag)

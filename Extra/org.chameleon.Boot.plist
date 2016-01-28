@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kernel</key>
+	<string>mach_kernel</string>
+	<key>Kernel Flags</key>
+	<string>npci=0x2000 -v</string>
+	<key>Timeout</key>
+	<string>0</string>
+	<key>Scan Single Drive</key>
+	<string>n</string>
+	<key>Rescan</key>
+	<string>y</string>
+	<key>GraphicsEnabler</key>
+	<string>y</string>
+	<key>EthernetBuiltIn</key>
+	<string>y</string>
+	<key>GUI</key>
+	<string>y</string>
+</dict>
+</plist>
