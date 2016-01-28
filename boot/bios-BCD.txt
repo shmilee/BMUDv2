@@ -1,0 +1,56 @@
+
+Windows 启动管理器
+--------------------
+标识符                  {bootmgr}
+description             Windows Boot Manager
+locale                  en-US
+default                 {default}
+displayorder            {default}
+                        {f5a1a17e-c49a-11e5-bb2c-87efa5e9a52e}
+                        {7c4970fd-c53d-11e5-8e69-8f472848e869}
+timeout                 9
+
+Windows 启动加载器
+-------------------
+标识符                  {default}
+device                  ramdisk=[boot]\winpe\Win7PEx86.WIM,{7619dcc8-fafe-11d9-b411-000476eba25f}
+path                    \windows\system32\boot\winload.exe
+description             Windows 7 PE x86 v3.1
+locale                  en-US
+osdevice                ramdisk=[boot]\winpe\Win7PEx86.WIM,{7619dcc8-fafe-11d9-b411-000476eba25f}
+systemroot              \windows
+detecthal               Yes
+winpe                   Yes
+ems                     Yes
+
+Windows 启动加载器
+-------------------
+标识符                  {7c4970fd-c53d-11e5-8e69-8f472848e869}
+device                  ramdisk=[boot]\sources\boot.wim,{7619dcc8-fafe-11d9-b411-000476eba25f}
+path                    \windows\system32\boot\winload.exe
+description             Windows Setup
+locale                  en-US
+inherit                 {bootloadersettings}
+osdevice                ramdisk=[boot]\sources\boot.wim,{7619dcc8-fafe-11d9-b411-000476eba25f}
+systemroot              \windows
+detecthal               Yes
+winpe                   Yes
+ems                     No
+
+Windows 启动加载器
+-------------------
+标识符                  {f5a1a17e-c49a-11e5-bb2c-87efa5e9a52e}
+device                  ramdisk=[boot]\winpe\Win8PEx64.WIM,{7619dcc8-fafe-11d9-b411-000476eba25f}
+description             Windows 8 PE x64 v19.36
+locale                  en-US
+osdevice                ramdisk=[boot]\winpe\Win8PEx64.WIM,{7619dcc8-fafe-11d9-b411-000476eba25f}
+systemroot              \windows
+detecthal               Yes
+winpe                   Yes
+ems                     Yes
+
+设备选项
+--------------
+标识符                  {7619dcc8-fafe-11d9-b411-000476eba25f}
+ramdisksdidevice        boot
+ramdisksdipath          \boot\boot.sdi

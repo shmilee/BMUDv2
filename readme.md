@@ -29,8 +29,6 @@ dd if=./grldr.mbr of=/dev/sdX bs=1k skip=1 seek=1 count=8
 
 【archboot】archboot/{initramfs_x86_64.img,intel-ucode.img,vmlinuz_x86_64}
 
-【win7PE】WIN7PE3.1网络版，将ISO复制到 U盘/ISO/WIN7PE3.1.iso。
-
 【小马2K3PE】: 已有 minipe/ntldr，需
 
 * 复制minipe目录
@@ -74,9 +72,18 @@ U盘/efi/Clover/
 
 【debian系的livecd】
 
-【Win8 x64 PE】我心如水_Win8_x64_PE_v19.36.ISO, only in UEFI
 
-* sources目录
-* boot目录
-* EFI/microsoft目录
-* EFI/BOOT/BOOTX64.EFI -> U盘/EFI/microsoft/boot/bootmgr.efi
+#【win7 win8 等PE】
+
+-【win7 x86 PE】Only BIOS。WIN7PE3.1网络版, WIN7PE3.1.iso
+-【Win8 x64 PE】BIOS+UEFI。我心如水_Win8_x64_PE_v19.36.ISO
+-【Windows安装】BIOS+UEFI。安装盘.iso
+
+已添加修改的BCD文件，boot/下的用于BIOS，EFI/microsoft/boot/下的用于UEFI。
+winpe文件夹已放入bootmgr和bootmgr.efi，并且bootmgr均已添加到grub4dos和grub2。
+
+需要复制的文件：
+
+* WIN7PE3.1.iso/boot/win7pe.wim -> winpe/Win7PEx86.wim
+* 我心如水_Win8_x64_PE_v19.36.ISO/sources/boot.wim -> winpe/Win8PEx64.wim
+* windows安装盘/{sources,support} -> U盘/

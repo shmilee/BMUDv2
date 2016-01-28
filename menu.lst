@@ -20,10 +20,8 @@ title [01]--启动 深度deepin LiveCD
 kernel /debian/vmlinuz boot=live union=overlay components live-config findiso=/debian/deepin.iso locale=zh_CN.UTF-8
 initrd /debian/initrd.lz
 
-title [02]--启动 win7 PE
-map --mem /ISO/WIN7PE3.1.iso (0xff)
-map --hook
-chainloader (0xff)
+title [02]--启动 Windows bootmgr
+chainloader /winpe/bootmgr
 title
 clear
 
