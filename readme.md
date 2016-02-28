@@ -75,9 +75,9 @@ U盘/efi/Clover/
 
 #【win7 win8 等PE】
 
--【win7 x86 PE】Only BIOS。WIN7PE3.1网络版, WIN7PE3.1.iso
--【Win8 x64 PE】BIOS+UEFI。我心如水_Win8_x64_PE_v19.36.ISO
--【Windows安装】BIOS+UEFI。安装盘.iso
+- 【win7 x86 PE】Only BIOS。WIN7PE3.1网络版, WIN7PE3.1.iso
+- 【Win8 x64 PE】BIOS+UEFI。我心如水_Win8_x64_PE_v19.36.ISO
+- 【Windows安装】BIOS+UEFI。安装盘.iso
 
 已添加修改的BCD文件，boot/下的用于BIOS，EFI/microsoft/boot/下的用于UEFI。
 winpe文件夹已放入bootmgr和bootmgr.efi，并且bootmgr均已添加到grub4dos和grub2。
