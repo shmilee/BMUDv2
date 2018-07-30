@@ -16,19 +16,25 @@ kernel /archboot/vmlinuz_x86_64 cgroup_disable=memory rootdelay=10 rootfstype=ra
 initrd  /archboot/intel-ucode.img
 initrd /archboot/initramfs_x86_64.img
 
-title [01]--启动 深度deepin LiveCD
+title [01]--启动 Ubuntu LiveCD
+find --set-root /debian/ubuntu-iso-is-here
+kernel /debian/vmlinuz boot=casper iso-scan/filename=/debian/ubuntu.iso locale=zh_CN.UTF-8
+initrd /debian/initrd.lz
+
+title [02]--启动 Deepin LiveCD
+find --set-root /debian/deepin-iso-is-here
 kernel /debian/vmlinuz boot=live union=overlay components live-config findiso=/debian/deepin.iso locale=zh_CN.UTF-8
 initrd /debian/initrd.lz
 
-title [02]--启动 Windows bootmgr
+title [03]--启动 Windows bootmgr
 chainloader /winpe/bootmgr
 title
 clear
 
-title [03]--启动小马WINPE 2K3                                         
+title [04]--启动小马WINPE 2K3                                         
 configfile /minipe/xiaoma.lst
 
-title [04]--启动MenuetOS.IMG
+title [05]--启动MenuetOS.IMG
 map --mem /img/MenuetOS.IMG (fd0)
 map --hook
 chainloader (fd0)+1
@@ -36,7 +42,7 @@ rootnoverify (fd0)
 map --floppies=1
 boot
 
-title [05]--启动深山红叶DOS工具箱(WPS)
+title [06]--启动深山红叶DOS工具箱(WPS)
 map --mem /img/DOS98.IMG (fd0)
 map --hook
 chainloader (fd0)+1
@@ -44,18 +50,18 @@ rootnoverify (fd0)
 map --floppies=1
 boot
 
-title [06]--启动 chameleon (G430-DSDT)
+title [07]--启动 chameleon (G430-DSDT)
 kernel /chameleon
 boot
 
-title [07]--启动veket 美好事物Linux
+title [08]--启动veket 美好事物Linux
 root (hd0,0)
 kernel /veket/vmlinuz root=/dev/ram0 PMEDIA=usbflash
 initrd /veket/initrd.gz
 title
 clear
 
-title [08]--启动本机windows
+title [09]--启动本机windows
 map (hd0) (hd1)
 map (hd1) (hd0)
 map --hook
@@ -63,6 +69,6 @@ rootnoverify (hd0,3)
 makeactive
 chainloader +1
 
-title [09]--重新启动计算机
+title [10]--重新启动计算机
 reboot
 
