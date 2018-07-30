@@ -1,10 +1,10 @@
-﻿#【U盘】
+﻿# 【U盘】
 
 格式化为 FAT32，容量4G-8G。
 
 mkfs.vfat -F 32 -n FIX /dev/sdX1
 
-#【grub4dos】
+# 【grub4dos】
 
 * File: grub4dos-0.4.4-2009-12-03.zip
 * MD5:  71bfd24294dcabac3e7a8326bb7ea88b
@@ -47,7 +47,7 @@ dd if=./grldr.mbr of=/dev/sdX bs=1k skip=1 seek=1 count=8
 【debian系 livecd】镜像iso复制到debian，配合 menu.lit 复制文件。
 
 
-#【EFI 的 grub2 + clover】
+# 【EFI 的 grub2 + clover】
 
 1.GRUB2 
 
@@ -73,7 +73,7 @@ U盘/efi/Clover/
 【debian系的livecd】
 
 
-#【win7 win8 等PE】
+# 【win7 win8 等PE】
 
 - 【win7 x86 PE】Only BIOS。WIN7PE3.1网络版, WIN7PE3.1.iso
 - 【Win8 x64 PE】BIOS+UEFI。我心如水_Win8_x64_PE_v19.36.ISO
