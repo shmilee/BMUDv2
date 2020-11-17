@@ -1,0 +1,19 @@
+# rename or not "debian-live-10.6.0-amd64-gnome.iso"
+set iso_path="/debian/debian.iso"
+
+# debian
+set bootoptions="boot=live findiso=${iso_path} components locales=zh_CN.UTF-8"
+set vmlinuz_path="/live/vmlinuz-4.19.0-11-amd64"
+set initrd_path="/live/initrd.img-4.19.0-11-amd64"
+
+## ubuntu
+#set bootoptions="boot=casper iso-scan/filename=${iso_path} noprompt noeject locale=zh_CN.UTF-8"
+#set vmlinuz_path="/casper/vmlinuz"
+#set initrd_path="/casper/initrd"
+## Ubuntu 20.04 LTS, remove tpm.
+#rmmod tpm
+
+## deepin
+#set bootoptions="boot=live findiso=${iso_path} components live-config union=overlay locale=zh_CN.UTF-8"
+#set vmlinuz_path="/live/vmlinuz"
+#set initrd_path="/live/initrd.lz"

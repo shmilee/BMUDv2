@@ -16,15 +16,20 @@ kernel /archboot/vmlinuz_x86_64 cgroup_disable=memory rootdelay=10 rootfstype=ra
 initrd  /archboot/intel-ucode.img
 initrd /archboot/initramfs_x86_64.img
 
-title [01]--启动 Ubuntu LiveCD
-find --set-root /debian/ubuntu-iso-is-here
-kernel /debian/vmlinuz boot=casper iso-scan/filename=/debian/ubuntu.iso locale=zh_CN.UTF-8
-initrd /debian/initrd.lz
+title [01]--启动 Debian LiveCD
+find --set-root /debian/debian-iso-is-here
+# debian
+kernel /debian/vmlinuz boot=live findiso=/debian/debian.iso components locales=zh_CN.UTF-8
+initrd /debian/initrd.img
+## ubuntu
+#kernel /debian/vmlinuz boot=casper iso-scan/filename=/debian/ubuntu.iso oprompt noeject locale=zh_CN.UTF-8
+#initrd /debian/initrd
+## deepin
+#kernel /debian/vmlinuz boot=live findiso=/debian/deepin.iso components live-config union=overlay locale=zh_CN.UTF-8
+#initrd /debian/initrd.lz
 
 title [02]--启动 Deepin LiveCD
 find --set-root /debian/deepin-iso-is-here
-kernel /debian/vmlinuz boot=live union=overlay components live-config findiso=/debian/deepin.iso locale=zh_CN.UTF-8
-initrd /debian/initrd.lz
 
 title [03]--启动 Windows bootmgr
 chainloader /winpe/bootmgr
