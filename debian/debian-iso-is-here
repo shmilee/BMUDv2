@@ -1,5 +1,5 @@
 # rename or not "debian-live-10.6.0-amd64-gnome.iso"
-set iso_path="/debian/debian.iso"
+set iso_path="/debian/debian-live-10.6.0-amd64-gnome.iso"
 
 # debian
 set bootoptions="boot=live findiso=${iso_path} components locales=zh_CN.UTF-8"

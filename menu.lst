@@ -28,8 +28,10 @@ initrd /debian/initrd.img
 #kernel /debian/vmlinuz boot=live findiso=/debian/deepin.iso components live-config union=overlay locale=zh_CN.UTF-8
 #initrd /debian/initrd.lz
 
-title [02]--Æô¶¯ Deepin LiveCD
-find --set-root /debian/deepin-iso-is-here
+title [02]--Æô¶¯ Grub2 File Manager
+map --mem /grubfm/grubfm.iso (0xff)
+map --hook
+chainloader (0xff)
 
 title [03]--Æô¶¯ Windows bootmgr
 chainloader /winpe/bootmgr

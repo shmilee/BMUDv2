@@ -1,4 +1,4 @@
-﻿# 【U盘】
+# 【U盘】
 
 格式化为 FAT32，容量4G-8G。
 
@@ -44,7 +44,9 @@ dd if=./grldr.mbr of=/dev/sdX bs=1k skip=1 seek=1 count=8
 
 【veket】镜像文件解压至veket目录即可。
 
-【debian系 livecd】镜像iso复制到debian，配合 menu.lit 复制文件。
+【debian系 livecd】镜像iso复制到debian, 配合 menu.lit 复制文件, debian ubuntu 不同 bootoptions
+
+【grub2-filemanager】https://github.com/a1ive/grub2-filemanager
 
 
 # 【EFI 的 grub2 + clover】
@@ -70,7 +72,11 @@ U盘/efi/Clover/
 
 【archboot】
 
-【debian系的livecd】
+【debian系的livecd】镜像iso复制到debian, 根据文件名修改 debian-iso-is-here
+
+【grub2-filemanager】https://github.com/a1ive/grub2-filemanager
+
+【Multiboot USB】[fork](https://github.com/hackerncoder/multibootusb), 复制 mbusb.d -> U盘/efi/boot/
 
 
 # 【win7 win8 等PE】
