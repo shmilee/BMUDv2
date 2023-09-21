@@ -1,0 +1,9 @@
+https://archboot.net/iso/x86_64/latest/
+
+2023.09.20
+
+vmlinuz-x86_64     ->  vmlinuz_x86_64
+
+intel-ucode.img
+
+initrd-x86_64.img  ->  initramfs_x86_64.img
