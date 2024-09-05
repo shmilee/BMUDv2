@@ -79,17 +79,47 @@ U盘/efi/Clover/
 【Multiboot USB】[fork](https://github.com/hackerncoder/multibootusb), 复制 mbusb.d -> U盘/efi/boot/
 
 
-# 【win7 win8 等PE】
+# 【win7 8 10 11 等PE】
 
-- 【win7 x86 PE】Only BIOS。WIN7PE3.1网络版, WIN7PE3.1.iso
-- 【Win8 x64 PE】BIOS+UEFI。我心如水_Win8_x64_PE_v19.36.ISO
-- 【Windows安装】BIOS+UEFI。安装盘.iso
+winpe 文件夹已放入 bootmgr 和 bootmgr.efi，并均已添加到 grub4dos 和 grub2。
 
-已添加修改的BCD文件，boot/下的用于BIOS，EFI/microsoft/boot/下的用于UEFI。
-winpe文件夹已放入bootmgr和bootmgr.efi，并且bootmgr均已添加到grub4dos和grub2。
+* bootmgr 用于 BIOS(Legacy) 启动，读取 `boot/BCD`。
+  BCD 中添加了 Win7(default), Win8, Win10, Windows Setup 四个启动项。
+  确认 wim sdi 文件的路径可查看 `boot/bios-BCD.txt`。
+* bootmgr.efi 用于 UEFI 启动，读取 `EFI/microsoft/boot/BCD`。
+  BCD 中添加了 Win8(default), Win10, Win11, Windows Setup 四个启动项。
+  确认 wim sdi 文件的路径可查看 `EFI/microsoft/boot/uefi-BCD.txt`。
 
-需要复制的文件：
+* 不同 PE 的 `boot.sdi` (System Deployment Image) 虽然 md5 不同，
+  但现阶段在 BCD 中都用 960k 的 `boot/boot.sdi`。
+  若需要设置不同的 sdi 文件，可以用 `winpe/tools/BOOTICEx64_2016.06.17_v1.3.4.0.exe`
+  在 PE 环境中修改 BCD。
+* BIOS(Legacy) 与 UEFI 两种启动模式，启动项中的 path 是不同的
+    - `\windows\system32\boot\winload.exe` vs `\windows\system32\boot\winload.efi`
 
-* WIN7PE3.1.iso/boot/win7pe.wim -> winpe/Win7PEx86.wim
-* 我心如水_Win8_x64_PE_v19.36.ISO/sources/boot.wim -> winpe/Win8PEx64.wim
-* windows安装盘/{sources,support} -> U盘/
+用到的 PE 以及需要复制的 wim 文件。（文件名大小写不敏感）
+
+* 【Win7 x86 PE】Only BIOS。WIN7PE3.1网络版。
+    - `WIN7PE3.1.iso/boot/win7pe.wim` -> `winpe/Win7PEx86.wim`
+* 【Win8 x64 PE】BIOS+UEFI。`我心如水_Win8_x64_PE_v19.36.ISO`
+    - `我心如水_Win8_x64_PE_v19.36.ISO/sources/boot.wim` -> `winpe/Win8PEx64.wim`
+* 【Win10 x64 PE】BIOS+UEFI。[微PE工具箱](https://www.wepe.com.cn)，`WePE_64_V2.3.exe` 导出 ISO。
+    - `WePE_64_V2.3.iso/WEPE/WEPE64.WIM` -> `winpe/Win10WePEx64.wim`
+* 【Win11 x64 PE】Only UEFI。[FirPE](https://firpe.cn)，`FirPE-V1.9.1.exe` 导出 ISO。
+    - `FirPE-V1.9.1.iso/boot/11pex64.wim` -> `winpe/Win11FirPEx64.wim`
+    - 11pex64.wim 内有两个卷，默认用卷 1，不影响 BCD 中的路径设置。
+* 【Windows安装】BIOS+UEFI。`Windows 安装盘.iso`
+    - windows安装盘/{sources,support} -> U盘/
+
+winpe 文件夹空间占用情况：
+```bash
+[$] ls -lh FIX/winpe/
+总计 1.5G
+-rw-r--r-- 1  389K 2013年10月 9日 bootmgr
+-rw-r--r-- 1  1.3M 2013年10月 9日 bootmgr.efi
+drwxr-xr-x 3  4.0K  9月 5日 13:28 tools
+-rw-r--r-- 1  210M  9月 5日 13:30 Win10WePEx64.wim
+-rw-r--r-- 1  631M  9月 5日 13:31 Win11FirPEx64.wim
+-rw-r--r-- 1  272M 2010年 7月29日 Win7PEx86.wim
+-rw-r--r-- 1  410M 2014年 1月26日 Win8PEx64.wim
+```

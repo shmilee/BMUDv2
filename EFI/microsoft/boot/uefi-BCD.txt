@@ -1,3 +1,5 @@
+> bcdedit.exe /store ??:\EFI\microsoft\boot\BCD /enum >uefi-BCD.txt
+> 若缺失 ramdiskoptions， 手动添加
 
 Windows 启动管理器
 --------------------
@@ -6,16 +8,45 @@ description             Windows Boot Manager
 locale                  en-US
 default                 {default}
 displayorder            {default}
+                        {29ff612c-6a6b-11ef-ba70-605718e08fa7}
+                        {ba7902e8-6a6f-11ef-ba71-605718e08fa7}
                         {7c4970fd-c53d-11e5-8e69-8f472848e869}
 timeout                 9
 
 Windows 启动加载器
 -------------------
 标识符                  {default}
-device                  ramdisk=[boot]\winpe\Win8PEx64.WIM,{7619dcc8-fafe-11d9-b411-000476eba25f}
+device                  ramdisk=[boot]\winpe\Win8PEx64.wim,{ramdiskoptions}
+path                    \windows\system32\boot\winload.efi
 description             Windows 8 PE x64 v19.36
 locale                  en-US
-osdevice                ramdisk=[boot]\winpe\Win8PEx64.WIM,{7619dcc8-fafe-11d9-b411-000476eba25f}
+osdevice                ramdisk=[boot]\winpe\Win8PEx64.wim,{ramdiskoptions}
+systemroot              \windows
+detecthal               Yes
+winpe                   Yes
+ems                     Yes
+
+Windows 启动加载器
+-------------------
+标识符                  {29ff612c-6a6b-11ef-ba70-605718e08fa7}
+device                  ramdisk=[boot]\winpe\Win10WePEx64.wim,{ramdiskoptions}
+path                    \windows\system32\boot\winload.efi
+description             Windows 10 WePE x64 v2.3
+locale                  en-US
+osdevice                ramdisk=[boot]\winpe\Win10WePEx64.wim,{ramdiskoptions}
+systemroot              \windows
+detecthal               Yes
+winpe                   Yes
+ems                     Yes
+
+Windows 启动加载器
+-------------------
+标识符                  {ba7902e8-6a6f-11ef-ba71-605718e08fa7}
+device                  ramdisk=[boot]\winpe\Win11FirPEx64.wim,{ramdiskoptions}
+path                    \windows\system32\boot\winload.efi
+description             Windows 11 FirPE x64 v1.9.1
+locale                  en-US
+osdevice                ramdisk=[boot]\winpe\Win11FirPEx64.wim,{ramdiskoptions}
 systemroot              \windows
 detecthal               Yes
 winpe                   Yes
@@ -24,12 +55,11 @@ ems                     Yes
 Windows 启动加载器
 -------------------
 标识符                  {7c4970fd-c53d-11e5-8e69-8f472848e869}
-device                  ramdisk=[boot]\sources\boot.wim,{7619dcc8-fafe-11d9-b411-000476eba25f}
+device                  ramdisk=[boot]\sources\boot.wim,{ramdiskoptions}
 path                    \windows\system32\boot\winload.efi
 description             Windows Setup
 locale                  en-US
-inherit                 {bootloadersettings}
-osdevice                ramdisk=[boot]\sources\boot.wim,{7619dcc8-fafe-11d9-b411-000476eba25f}
+osdevice                ramdisk=[boot]\sources\boot.wim,{ramdiskoptions}
 systemroot              \windows
 detecthal               Yes
 winpe                   Yes
@@ -37,6 +67,6 @@ ems                     No
 
 设备选项
 --------------
-标识符                  {7619dcc8-fafe-11d9-b411-000476eba25f}
+标识符                  {ramdiskoptions}
 ramdisksdidevice        boot
 ramdisksdipath          \boot\boot.sdi
