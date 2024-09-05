@@ -27,7 +27,7 @@ dd if=./grldr.mbr of=/dev/sdX bs=1k skip=1 seek=1 count=8
 
 2.编写 menu.lst
 
-【archboot】archboot/{initramfs_x86_64.img,intel-ucode.img,vmlinuz_x86_64}
+【archboot】`archboot/{initramfs_x86_64.img,intel-ucode.img,vmlinuz_x86_64}`
 
 【小马2K3PE】: 已有 minipe/ntldr，需
 
@@ -59,14 +59,16 @@ archbootISO/efi/grub/grubx64.efi -> U盘/efi/boot/bootx64.efi
 
 2.tools
 
+```
 archbootISO/efi/tools/{shellx64_v1.efi,shellx64_v2.efi} ->
 U盘/efi/tools/{shellx64_v1.efi,shellx64_v2.efi}
+```
 
 3.Clover
 
 U盘/efi/Clover/
 
-启动方式，不能直接通过grub2，须 grub2 -> shellx64_v2 -> clover.efi
+启动方式，不能直接通过grub2，须 `grub2 -> shellx64_v2 -> clover.efi`
 
 4.编辑grubx64.cfg，添加locale, theme, font.
 
