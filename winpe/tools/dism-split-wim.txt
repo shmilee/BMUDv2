@@ -1,0 +1,19 @@
+﻿#  Utilize split images
+
+Dism supports the /split-image command which would allow you to split the image into pieces that are less than 4GB.
+ 
+~~Dism /Split-Image /ImageFile:install.wim /SWMFile:install.swm /FileSize:4000~~
+
+dism /Split-Image /ImageFile:J:\sources\install.wim /SWMFile:K:\sources\install.swm /FileSize:4000
+
+This will create the following files (depending on size)
+
+    install.swm
+
+    ~~install1.swm~~
+
+    install2.swm
+
+~~Place all the files in a directory and use DISM /apply image~~
+
+~~Dism /apply-image /imagefile:install.swm /swmfile:install*.swm /index:1 /applydir:D:~~
