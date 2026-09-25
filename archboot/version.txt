@@ -1,6 +1,6 @@
-https://archboot.net/iso/x86_64/latest/
+https://release.archboot.com/x86_64/latest/
 
-2023.09.20
+2026.03.29  date-latest ISO
 
 vmlinuz-x86_64     ->  vmlinuz_x86_64
 

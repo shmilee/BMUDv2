@@ -1,0 +1,3 @@
+T14p UEFI 启用 Windows 启动菜单（切换 windows 11 安装）需：
+`mv efi to /FIX/EFI/microsoft/boot/`，
+会跳过 grub2 菜单，直接到 win 启动菜单。

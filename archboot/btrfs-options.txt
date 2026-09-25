@@ -1,2 +1,2 @@
 type btrfs 
-(rw,noatime,compress=lzo,ssd,discard,space_cache,autodefrag)
+defaults,compress=zstd,commit=30,noatime,autodefrag,ssd,space_cache=v2
