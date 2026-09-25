@@ -1,3 +1,10 @@
+# Mv to ventoy
+
+* 部分镜像和 Windows 相关启动文件的版本过于老旧，整体弃用。
+* mv to <https://www.ventoy.net>, save time & enjoy your life.
+    - 直接启动 WIM 文件: <https://www.ventoy.net/cn/plugin_wimboot.html>
+    - 背景: `./splash.png` to `(分区2,VTOYEFI)/grub/themes/ventoy/background.png`
+
 # 【U盘】
 
 格式化为 FAT32，容量4G-8G。
