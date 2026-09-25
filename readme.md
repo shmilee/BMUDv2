@@ -1,9 +1,13 @@
-# Mv to ventoy
+# Mv to ventoy (2026.09)
 
 * 部分镜像和 Windows 相关启动文件的版本过于老旧，整体弃用。
 * mv to <https://www.ventoy.net>, save time & enjoy your life.
-    - 直接启动 WIM 文件: <https://www.ventoy.net/cn/plugin_wimboot.html>
     - 背景: `./splash.png` to `(分区2,VTOYEFI)/grub/themes/ventoy/background.png`
+    - test 启动 WIM 文件: <https://www.ventoy.net/cn/plugin_wimboot.html>
+    - test Win11 25H2 & 26H2
+    - test T14p WiFi w/ `archlinux-2026.09.01-x86_64.iso`
+
+---
 
 # 【U盘】
 
